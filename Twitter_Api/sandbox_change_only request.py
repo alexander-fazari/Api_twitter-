@@ -1,4 +1,11 @@
 
+#keys 
+consumer_key = 'VOz2nKhJN5yoa5j2v4DNBTSLR'                             # API key
+consumer_secret = '4rh1XdX4aoMgvvSOG3Sidjj6eQakXHjOKOhnjUuDzxOibO0zd5'  # API secret
+access_token= '304341411-mwIpi5PFxns5tSI8m5R0xCSNvTJiI5a7hsTKJcdb'      # OAUTH Access token
+access_token_secret = '4n4wChW6nY2J2bzjS3n5CZ8ApET2Ft9DEEHJkz3ndtXlO'    # OAUTH Access secret
+
+
 client_key =consumer_key
 client_secret= consumer_secret
 import base64
@@ -38,27 +45,71 @@ search_headers = {
     'Authorization': 'Bearer {}'.format(access_token)    
 }
 
+# parameter for the full
 search_params = {
-    'q': '#drones',
-    'result_type': 'recent',
+    'query': '#drones',
+    # 'result_type': 'recent',
     # 'count': 2,
-     'maxResults': '100',
+     # 'maxResults': '100',
     'fromDate':'201802010000', 
-    'toDate':'201802282359'  
+    'toDate':'201802282359' ,
+    # 'maxResults' :100
 }
 
-search_url = '{}1.1/search/tweets.json'.format(base_url)
+# parameter for the 30
+search_params = {
+    'query': '#drones',
+    # 'result_type': 'recent',
+    # 'count': 2,
+     # 'maxResults': '100',
+    # 'fromDate':'201802010000', 
+    # 'toDate':'201802282359' ,
+    'maxResults' :100
+}
 
-# search_url = '{}1.1/tweets/search/fullarchive/prod.json'.format(base_url) 
+
+# for the standard 
+search_params = {
+    'q': '#drones',
+    # 'result_type': 'recent',
+    # 'count': 2,
+     # 'maxResults': '100',
+    # 'fromDate':'201802010000', 
+    # 'toDate':'201802282359' ,
+    'maxResults' :100
+}
+
+
+# works only with query q and other parameters 
+search_url = '{}1.1/search/tweets.json'.format(base_url)
+# check parameters 
+search_url = '{}1.1/tweets/search/30day/NLP.json'.format(base_url)
+
+
+# full archive 
+search_url = '{}1.1/tweets/search/fullarchive/NLP.json'.format(base_url)
+
+
+search_url='https://api.twitter.com/1.1/tweets/search/fullarchive/NLP.json'
+
 search_resp = requests.get(search_url, headers=search_headers, params=search_params)
 
-# search_resp  = requests.post('https://api.twitter.com/1.1/tweets/search/fullarchive.json', headers=search_headers, data=data)
+
+ # search_resp  = requests.post('https://api.twitter.com/1.1/tweets/search/fullarchive.json', headers=search_headers, params=search_params)
 
 
 tweet_data = search_resp.json()
 search_resp.status_code
 
 
+# this for the data of standard 
 for x in tweet_data['statuses']:
+    print(x['text'] + '\n')
+    
+    
+    
+    # this for the data of 30 and fuòll
+    
+    for x in tweet_data['results']:
     print(x['text'] + '\n')
     
