@@ -54,6 +54,7 @@ search_params = {
     'fromDate':'201802010000', 
     'toDate':'201802282359' ,
     # 'maxResults' :100
+    'next':'eyJtYXhJZCI6OTY4OTg3NTc0MzA2OTcxNjQ4fQ=='
 }
 
 # parameter for the 30
@@ -112,4 +113,7 @@ for x in tweet_data['statuses']:
     
     for x in tweet_data['results']:
     print(x['text'] + '\n')
+    # what to do is to take the next from the tweet data and put in the request 
+    tweet_data['next']
+    
     
