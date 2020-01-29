@@ -116,4 +116,37 @@ for x in tweet_data['statuses']:
     # what to do is to take the next from the tweet data and put in the request 
     tweet_data['next']
     
+    # trend near location 
+    search_params = {
+     
+    # 'result_type': 'recent',
+    # 'count': 2,
+     # 'maxResults': '100',
+    # 'fromDate':'201802010000', 
+    # 'toDate':'201802282359' ,
+    'id':'1'
+}
+
+    
+    search_url ='https://api.twitter.com/1.1/trends/place.json'
+    search_resp = requests.get(search_url, headers=search_headers, params=search_params)
+      # trend near lat lang 
+      search_params = {
+     'lat':'45.0703',
+     'long':'7.6869'
+    # 'result_type': 'recent',
+    # 'count': 2,
+     # 'maxResults': '100',
+    # 'fromDate':'201802010000', 
+    
+}
+
+    
+    search_url ='https://api.twitter.com/1.1/trends/closest.json'
+    search_resp = requests.get(search_url, headers=search_headers, params=search_params)
+    
+    
+    
+    
+    
     
