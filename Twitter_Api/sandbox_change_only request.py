@@ -48,6 +48,7 @@ search_params = {
 }
 
 search_url = '{}1.1/search/tweets.json'.format(base_url)
+search_url = '{}1.1/search/tweets.json'.format(base_url)
 
 # search_url = '{}1.1/tweets/search/fullarchive/prod.json'.format(base_url) 
 search_resp = requests.get(search_url, headers=search_headers, params=search_params)

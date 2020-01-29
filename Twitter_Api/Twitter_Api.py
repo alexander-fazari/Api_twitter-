@@ -189,14 +189,14 @@ csvWriter.writerow([tweet])
  ################################################♣à
 #working for only one week 
 # Open/Create a file to append data
-csvFile = open('ua.csv', 'a')
-#Use csv Writer
-csvWriter = csv.writer(csvFile)
+# csvFile = open('ua.csv', 'a')
+# #Use csv Writer
+# csvWriter = csv.writer(csvFile)
 
 Tweets_DF =pd.DataFrame([])
 
-for tweet in tweepy.Cursor(api.search,q="#drones",
-                           count=100,
+for tweet in tweepy.Cursor(api.search,q="#mina",
+                           count=20,
                            lang="en",
                            since="2017-04-03").items():
     print (tweet.created_at, tweet.text)
@@ -222,7 +222,7 @@ tweet_texts = pd.DataFrame(data=users_locs, columns=['user', "location" , "Text"
  
     export =  Tweets_DF.to_csv('Tweets_DF.csv') 
  ############################################################à
-   import tweepy
+import tweepy
 import csv
 import pandas as pd
 import sys
