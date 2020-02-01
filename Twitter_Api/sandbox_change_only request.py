@@ -83,6 +83,7 @@ search_params = {
 
 # works only with query q and other parameters 
 search_url = '{}1.1/search/tweets.json'.format(base_url)
+<<<<<<< HEAD
 # check parameters 
 search_url = '{}1.1/tweets/search/30day/NLP.json'.format(base_url)
 
@@ -92,6 +93,9 @@ search_url = '{}1.1/tweets/search/fullarchive/NLP.json'.format(base_url)
 
 
 search_url='https://api.twitter.com/1.1/tweets/search/fullarchive/NLP.json'
+=======
+search_url = '{}1.1/search/tweets.json'.format(base_url)
+>>>>>>> master
 
 search_resp = requests.get(search_url, headers=search_headers, params=search_params)
 
