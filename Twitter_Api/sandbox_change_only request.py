@@ -113,7 +113,7 @@ for x in tweet_data['statuses']:
     
     for x in tweet_data['results']:
     print(x['text'] + '\n')
-    # what to do is to take the next from the tweet data and put in the request 
+    # what to do is to take the next from the tweet data and put in the request '{}:{}'.format5
     tweet_data['next']
     
     # trend near location 
@@ -145,8 +145,6 @@ for x in tweet_data['statuses']:
     search_url ='https://api.twitter.com/1.1/trends/closest.json'
     search_resp = requests.get(search_url, headers=search_headers, params=search_params)
     
-    
-    
-    
+     
     
     
